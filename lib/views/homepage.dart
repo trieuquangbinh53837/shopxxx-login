@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'ShopX',
+                    'Ian Shop',
                     style: TextStyle(
                         fontFamily: 'avenir',
                         fontSize: 32,

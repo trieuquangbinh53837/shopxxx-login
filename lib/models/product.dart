@@ -11,9 +11,31 @@ List<Product> productFromJson(String str) =>
 String productToJson(List<Product> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
+// class Product {
+//   Product({
+//     this.greeting,
+//     this.instructions,
+//   });
+
+//   String greeting;
+//   List<List<Instruction>> instructions;
+
+//   factory Product.fromJson(Map<String, dynamic> json) => Product(
+//         greeting: json["greeting"],
+//         instructions: List<List<Instruction>>.from(json["instructions"].map(
+//             (x) =>
+//                 List<Instruction>.from(x.map((x) => Instruction.fromJson(x))))),
+//       );
+
+//   Map<String, dynamic> toJson() => {
+//         "greeting": greeting,
+//         "instructions": List<dynamic>.from(instructions
+//             .map((x) => List<dynamic>.from(x.map((x) => x.toJson())))),
+//       };
+// }
+
 class Product {
   Product({
-    this.id,
     this.brand,
     this.name,
     this.price,
@@ -32,10 +54,10 @@ class Product {
     this.productApiUrl,
     this.apiFeaturedImage,
     this.productColors,
+    this.id,
   });
 
-  int id;
-  Brand brand;
+  String brand;
   String name;
   String price;
   dynamic priceSign;
@@ -44,62 +66,61 @@ class Product {
   String productLink;
   String websiteLink;
   String description;
-  double rating;
+  int rating;
   String category;
   String productType;
-  List<dynamic> tagList;
-  DateTime createdAt;
-  DateTime updatedAt;
+  String tagList;
+  int createdAt;
+  int updatedAt;
   String productApiUrl;
   String apiFeaturedImage;
-  List<ProductColor> productColors;
+  String productColors;
+  String id;
 
   var isFavorite = false.obs;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
-        id: json["id"],
-        brand: brandValues.map[json["brand"]],
+        brand: json["brand"],
         name: json["name"],
         price: json["price"],
-        priceSign: json["price_sign"],
+        priceSign: json["priceSign"],
         currency: json["currency"],
-        imageLink: json["image_link"],
-        productLink: json["product_link"],
-        websiteLink: json["website_link"],
+        imageLink: json["imageLink"],
+        productLink: json["productLink"],
+        websiteLink: json["websiteLink"],
         description: json["description"],
-        rating: json["rating"] == null ? null : json["rating"].toDouble(),
-        category: json["category"] == null ? null : json["category"],
-        productType: json["product_type"],
-        tagList: List<dynamic>.from(json["tag_list"].map((x) => x)),
-        createdAt: DateTime.parse(json["created_at"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
-        productApiUrl: json["product_api_url"],
-        apiFeaturedImage: json["api_featured_image"],
-        productColors: List<ProductColor>.from(
-            json["product_colors"].map((x) => ProductColor.fromJson(x))),
+        rating: json["rating"],
+        category: json["category"],
+        productType: json["productType"],
+        tagList: json["tagList"],
+        createdAt: json["createdAt"],
+        updatedAt: json["updatedAt"],
+        productApiUrl: json["productApiUrl"],
+        apiFeaturedImage: json["apiFeaturedImage"],
+        productColors: json["productColors"],
+        id: json["id"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "brand": brandValues.reverse[brand],
+        "brand": brand,
         "name": name,
         "price": price,
-        "price_sign": priceSign,
-        "currency": currency,
-        "image_link": imageLink,
-        "product_link": productLink,
-        "website_link": websiteLink,
+        "priceSign": priceSign.toJson(),
+        "currency": currency.toJson(),
+        "imageLink": imageLink,
+        "productLink": productLink,
+        "websiteLink": websiteLink,
         "description": description,
-        "rating": rating == null ? null : rating,
-        "category": category == null ? null : category,
-        "product_type": productType,
-        "tag_list": List<dynamic>.from(tagList.map((x) => x)),
-        "created_at": createdAt.toIso8601String(),
-        "updated_at": updatedAt.toIso8601String(),
-        "product_api_url": productApiUrl,
-        "api_featured_image": apiFeaturedImage,
-        "product_colors":
-            List<dynamic>.from(productColors.map((x) => x.toJson())),
+        "rating": rating,
+        "category": category,
+        "productType": productType,
+        "tagList": tagList,
+        "createdAt": createdAt,
+        "updatedAt": updatedAt,
+        "productApiUrl": productApiUrl,
+        "apiFeaturedImage": apiFeaturedImage,
+        "productColors": productColors,
+        "id": id,
       };
 }
 

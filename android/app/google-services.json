@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "285591277231",
+    "project_id": "shopx-login-f9be0",
+    "storage_bucket": "shopx-login-f9be0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285591277231:android:1bf5b0132c323963e80e5a",
+        "android_client_info": {
+          "package_name": "com.example.shopx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "285591277231-tu43q8c7b7men4va6hkt3lrgj0lbthh7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAek4T9uCXuGzm6L00W6AZi8lUQHIHzKls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "285591277231-tu43q8c7b7men4va6hkt3lrgj0lbthh7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
